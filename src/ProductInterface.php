@@ -23,7 +23,7 @@ interface ProductInterface
 
     public function getAvailability();
 
-    public function getConditon();
+    public function getCondition();
 
     public function getGoogleProductCategory();
 

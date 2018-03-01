@@ -26,7 +26,7 @@ class ProductAdapter
         $productAdopted->setTargetCountry($product->getTargetCountry());
         $productAdopted->setChannel($product->getChannel());
         $productAdopted->setAvailability($product->getAvailability());
-        $productAdopted->setCondition($product->getConditon());
+        $productAdopted->setCondition($product->getCondition());
         $productAdopted->setGoogleProductCategory($product->getGoogleProductCategory());
         $getin = $product->getGetin();
         if ($getin) {
