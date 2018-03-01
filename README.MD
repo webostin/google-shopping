@@ -14,16 +14,10 @@ $product = new ExampleProduct();
 $price = new ExamplePrice();
 $googleShopping->sendProduct($product, $price);
 
-if($googleShopping->hasErrors()){
-    // fails
-    dump($googleShopping->getErrors());
-}
-
+dump($googleShopping->getErrors());
 // it is possible to has some warnings
+dump($googleShopping->getWarnings());
 
-if($googleShopping->hasWarnings()){
-    dump($googleShopping()->getWarnings());
-}
 ```
 
 # Config Folder structure

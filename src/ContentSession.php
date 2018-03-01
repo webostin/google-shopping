@@ -2,6 +2,7 @@
 
 namespace Webostin\Google\Shopping;
 
+use Google\Auth\ApplicationDefaultCredentials;
 
 class ContentSession
 {
@@ -49,7 +50,7 @@ class ContentSession
 
         $client = new \Google_Client();
         $client->setApplicationName('Content API for Shopping Samples');
-        $client->setScopes(Google_Service_ShoppingContent::CONTENT);
+        $client->setScopes(\Google_Service_ShoppingContent::CONTENT);
         $this->authenticate($client);
 
         $this->prepareServices($client);
@@ -126,7 +127,7 @@ class ContentSession
         // contain the different service resource objects.
         $gsClass = new \ReflectionClass('Google_Service');
         $gsscClass = new \ReflectionClass('Google_Service_ShoppingContent');
-        $gsProps = $gsClass->getProperties(ReflectionProperty::IS_PUBLIC);
+        $gsProps = $gsClass->getProperties(\ReflectionProperty::IS_PUBLIC);
         $gsscProps = array_diff(
             $gsscClass->getProperties(\ReflectionProperty::IS_PUBLIC), $gsProps);
 
@@ -319,8 +320,8 @@ class ContentSession
     {
         try {
             // Try loading the credentials.
-            $credentials = Google\Auth\ApplicationDefaultCredentials::getCredentials(
-                Google_Service_ShoppingContent::CONTENT);
+            $credentials = ApplicationDefaultCredentials::getCredentials(
+                \Google_Service_ShoppingContent::CONTENT);
             // If we got here, the credentials are there, so tell the client.
             $client->useApplicationDefaultCredentials();
             print "Using Google Application Default Credentials.\n";
