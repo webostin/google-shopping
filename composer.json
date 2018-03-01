@@ -1,0 +1,22 @@
+{
+  "name": "webostin/google-shopping",
+  "description": "A simple library to send, remove products from Google Shopping Content.",
+  "homepage": "https://github.com/webostin/google-shopping",
+  "authors": [
+    {
+      "name": "Michał Otfinowski",
+      "email": "michal@webostin.pl",
+      "role": "Developer"
+    }
+  ],
+  "license": "Apache-2.0",
+  "require": {
+    "google/apiclient": "^2.0",
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Webostin\\Google\\Shopping": "src"
+    }
+  }
+}
