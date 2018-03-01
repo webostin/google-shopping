@@ -28,7 +28,12 @@ class ProductAdapter
         $productAdopted->setAvailability($product->getAvailability());
         $productAdopted->setCondition($product->getConditon());
         $productAdopted->setGoogleProductCategory($product->getGoogleProductCategory());
-        $productAdopted->setGtin($product->getGetin());
+        $getin = $product->getGetin();
+        if ($getin) {
+            $productAdopted->setGtin($getin);
+        } else {
+            $productAdopted->setIdentifierExists('no');
+        }
         $productAdopted->setProductType($product->getProductType());
 
         if ($price instanceof PriceInterface) {
