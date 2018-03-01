@@ -16,7 +16,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Webostin\\Google\\Shopping": "src"
+      "Webostin\\Google\\Shopping\\": "src"
     }
   }
 }
