@@ -26,10 +26,7 @@ class ContentSession
     public function __construct(ConfigInterface $config)
     {
         $options['config_path'] = $config->getConfigPath();
-        if (!array_key_exists('config_path', $options)) {
-            $options['config_path'] = join(DIRECTORY_SEPARATOR,
-                [$this->getHome(), 'shopping-samples']);
-        }
+
         $this->configDir = join(DIRECTORY_SEPARATOR,
             [$options['config_path'], 'content']);
         $configFile = join(DIRECTORY_SEPARATOR,
@@ -253,34 +250,7 @@ class ContentSession
      */
     public function getHome()
     {
-        $home = null;
-
-        if (!empty(getenv('HOME'))) {
-            // Try the environmental variables.
-            $home = getenv('HOME');
-        } else {
-            if (!empty($_SERVER['HOME'])) {
-                // If not in the environment variables, check the superglobal $_SERVER as
-                // a last resort.
-                $home = $_SERVER['HOME'];
-            } else {
-                if (!empty(getenv('HOMEDRIVE')) && !empty(getenv('HOMEPATH'))) {
-                    // If the 'HOME' environmental variable wasn't found, we may be on
-                    // Windows.
-                    $home = getenv('HOMEDRIVE') . getenv('HOMEPATH');
-                } else {
-                    if (!empty($_SERVER['HOMEDRIVE']) && !empty($_SERVER['HOMEPATH'])) {
-                        $home = $_SERVER['HOMEDRIVE'] . $_SERVER['HOMEPATH'];
-                    }
-                }
-            }
-        }
-
-        if ($home === null) {
-            throw new \UnexpectedValueException('Could not locate home directory.');
-        }
-
-        return rtrim($home, '\\/');
+        return null;
     }
 
     private function getToken(\Google_Client $client)
