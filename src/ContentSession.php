@@ -39,8 +39,8 @@ class ContentSession
                     . 'in the samples root as a template.', $configFile));
             }
         } else {
-            printf("No configuration file found at %s\n", $configFile);
-            print "Falling back on configuration based on authenticated user.\n";
+            /*printf("No configuration file found at %s\n", $configFile);
+            print "Falling back on configuration based on authenticated user.\n";*/
             $this->config = [];
         }
 
